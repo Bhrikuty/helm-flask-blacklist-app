@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Flask chart with Postgres 
+name: flask-blacklist
+version: 0.1.0

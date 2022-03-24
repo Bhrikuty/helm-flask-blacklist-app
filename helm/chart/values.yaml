@@ -1,0 +1,11 @@
+namespace: microservices
+
+deployment:
+  postgres:
+    replicaCount: 1
+  flask:
+    replicaCount: 1
+    containerPort: 5004
+    image:
+      repository: flask-blacklist-svc
+      tag: v1
