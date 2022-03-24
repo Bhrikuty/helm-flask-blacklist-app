@@ -27,7 +27,7 @@ kubectl create ns microservices
 ## To test the functionality of the app, we can simply do a port forwarding to map the container ports to local machines.
 
 ```
- kubectl port-forward flask-blacklist-deployment-54hbr   5004:5004 
+ kubectl port-forward <flask-blacklist-pod-id>   5004:5004 
 
 ```
  
