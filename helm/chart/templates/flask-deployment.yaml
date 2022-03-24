@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deployment
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-svc
+  replicas: {{ .Values.deployment.flask.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-svc
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-svc
+          image: "{{ .Values.deployment.flask.image.repository }}:{{ .Values.deployment.flask.image.tag }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: {{ .Values.deployment.flask.containerPort }}
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi

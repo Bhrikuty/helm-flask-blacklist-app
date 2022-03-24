@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Release.Name }}-db
+spec:
+  type: NodePort
+  ports:
+   - port: 5432
+  selector:
+   app: {{ .Release.Name }}-db
